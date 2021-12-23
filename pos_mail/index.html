@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>POS MAILING</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<div class="text-center"> POSEIDON API MAILER</div>
+
+	<form class="container">
+    <div class="form-group col-6 offset-lg-3">
+      <label for="exampleInputEmail1">Adresse E-mail</label>
+      <input type="email" class="form-control email input-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted"></small>
+    </div>
+    <span class="resultat"></span>
+    &nbsp; &nbsp;
+    <div class="text-center">
+       <button type="submit" class="btn btn-primary btnsend ">Valider</button>
+    </div>
+   
+  </form>
+
+</body>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+   <script>
+
+    let link2 ="sendmail";
+
+      $(document).on('click','.btnsend',function(e){
+
+        var sendemail = $('.email').val();
+
+        $.ajax({
+              url: link2,
+              type: "POST",
+               data:{
+                  sendemail:sendemail
+              },
+              success: function(data) {
+                   if(data['status']="success"){
+                     $('.resultat').text("Mail envoi avec success");
+                   }else{
+                    $('.resultat').text("Echec d'envoi de mail");
+                   }
+                  
+              },
+              error: function(error) {
+                  console.log(error);
+
+                  $('.resultat').text("Echec d'envoi de mail");
+              },
+          }); 
+
+          e.preventDefault();
+
+
+      });
+   </script>
+
+</html>

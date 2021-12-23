@@ -11,5 +11,7 @@
     RewriteRule ^sendmail_test$ pos_mail/testdata_pos.php
 
     RewriteRule ^sendmail$ pos_mail/pos_mailer.php
+
+    RewriteRule ^sendindex$ pos_mail/index.html
    
 </IfModule>
