@@ -9,9 +9,7 @@
 3- utilisez la configuration dans httpd.conf
 
 #add by ibson ::ligne à ajouter autorisant les .htaccess
-<Directory "${SRVROOT}/htdocs/api_mailing_pos">
-     AllowOverride All
-</Directory>
+<Directory "${SRVROOT}/htdocs/api_mailing_pos">AllowOverride All</Directory>
 
 api_mailing_pos est le nom de votre dossier contenant le package de mailing
 
