@@ -10,7 +10,7 @@
  
     RewriteRule ^sendmail_test$ pos_mail/testdata_pos.php
 
-    RewriteRule ^sendmail$ pos_mail/pos_mailer.php
+    RewriteRule ^cv_liste$ pos_cv/pos_cv.php
 
     RewriteRule ^sendindex$ pos_mail/index.html
    
